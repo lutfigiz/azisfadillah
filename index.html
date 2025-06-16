@@ -1,0 +1,583 @@
+<!-- Minimalist Designer & Illustrator Portfolio -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Azis Fadillah – Portofolio</title>
+  <style>
+    :root {
+      --accent: #222;
+      --bg: #fff;
+      --muted: #888;
+      --font: 'Inter', Arial, sans-serif;
+      --primary: #111;
+      --highlight: #4f8cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--accent);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: #111;
+      color: #fff;
+      border-radius: 0;
+      padding: 2rem 0 1rem 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      padding-left: 2.5rem; /* Increased for slightly more right */
+      padding-right: 0;
+      text-align: left;
+    }
+    nav {
+      margin-top: 1rem;
+      padding-right: 1.5rem;
+      padding-left: 0;
+      text-align: right;
+    }
+    nav a {
+      text-decoration: none;
+      color: #bbb;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    nav a:first-child {
+      margin-left: 0;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+    }
+    /* Sleek About Me Section */
+    .about-hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 2rem;
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.07);
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Removed .profile-pic-wrapper and .profile-pic styles */
+    .about-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      align-items: center;
+    }
+    .about-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: var(--primary);
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+      animation: fadeIn 1.2s 0.2s both;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .about-highlight {
+      color: var(--highlight);
+      font-weight: 700;
+    }
+    .about-desc {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin: 0 0 1.2rem 0;
+      line-height: 1.7;
+      animation: fadeIn 1.2s 0.4s both;
+      text-align: center;
+    }
+    /* Hide old intro section */
+    .intro {
+      display: none;
+    }
+    /* Portfolio grid */
+    .portfolio {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+    }
+    .portfolio-header {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      margin-left: 0.2rem;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #4f8cff 0%, #a0e9ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      animation: fadeIn 1s both;
+    }
+    .portfolio-header.center {
+      margin-left: 0;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+    .portfolio-header.black {
+      background: none;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+      background-clip: initial;
+      text-fill-color: initial;
+      color: #111;
+    }
+    .portfolio-subheader {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2.2rem;
+      margin-left: 0.2rem;
+      text-align: left;
+      letter-spacing: 0.03em;
+      animation: fadeIn 1s 0.1s both;
+    }
+    .portfolio-subheader.big {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 2.2rem;
+      margin-left: 0.2rem;
+      text-transform: uppercase;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 270px); /* 1.5x bigger than 180px */
+      gap: 2rem;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeInUp 1s 0.2s both;
+    }
+    .portfolio-item {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 24px 0 rgba(79,140,255,0.07);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      position: relative;
+      width: 270px;
+      height: 270px;
+      min-width: 0;
+      min-height: 0;
+    }
+    .portfolio-item:hover {
+      box-shadow: 0 8px 32px 0 rgba(79,140,255,0.18);
+      transform: translateY(-6px) scale(1.03);
+      z-index: 2;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1.2rem;
+      display: block;
+      border: none;
+      box-shadow: none;
+      cursor: zoom-in;
+      transition: transform 0.3s;
+      aspect-ratio: 1 / 1;
+    }
+    /* Modal styles */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; right: 0; bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(20, 20, 20, 0.92);
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+    .image-modal.active {
+      display: flex;
+      animation: fadeIn 0.2s;
+    }
+    .image-modal img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      background: none;
+      padding: 0;
+      animation: fadeInUp 0.3s;
+      cursor: zoom-in;
+      transition: transform 0.2s;
+      /* Remove aspect-ratio and object-fit for modal image */
+      /* aspect-ratio: 1 / 1; */
+      /* object-fit: cover; */
+      display: block;
+    }
+    .image-modal img.zoomed {
+      transform: scale(2);
+      cursor: zoom-out;
+      box-shadow: 0 12px 60px rgba(0,0,0,0.35);
+      background: none;
+      z-index: 1002;
+    }
+    .image-modal-close {
+      position: absolute;
+      top: 2.5rem;
+      right: 3rem;
+      font-size: 2.5rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .image-modal-close:hover {
+      color: #4f8cff;
+    }
+    @media (max-width: 900px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 210px);
+        gap: 1.2rem;
+      }
+      .portfolio-item {
+        width: 210px;
+        height: 210px;
+      }
+    }
+    @media (max-width: 600px) {
+      .portfolio-header {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+      }
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 150px);
+        gap: 0.8rem;
+      }
+      .portfolio-item {
+        width: 100%;
+        height: 150px;
+      }
+      .image-modal img {
+        max-width: 98vw;
+        max-height: 70vh;
+      }
+      .image-modal-close {
+        top: 1rem;
+        right: 1.2rem;
+        font-size: 2rem;
+      }
+    }
+    /* Contact section styles */
+    .contact-section {
+      width: 100%;
+      max-width: 900px;
+      margin: 4rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+    .contact-header {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #111;
+      margin-bottom: 2.2rem;
+      margin-left: 0;
+      text-transform: uppercase;
+      text-align: center;
+      width: 100%;
+      animation: fadeIn 1s both;
+    }
+    .contact-caption {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 auto 2.2rem auto;
+      max-width: 480px;
+      text-align: center;
+      line-height: 1.7;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .contact-content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .contact-links-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      gap: 2.5rem;
+    }
+    .contact-link {
+      font-size: 1.2rem;
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: none;
+      margin: 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      border-radius: 0.5em;
+    }
+    .contact-link:hover {
+      color: var(--highlight);
+      border-bottom: 2px solid var(--highlight);
+      background: #f5faff;
+    }
+    .contact-icon {
+      display: inline-flex;
+      align-items: center;
+      height: 1em;
+    }
+    @media (max-width: 700px) {
+      .contact-header {
+        font-size: 1.5rem;
+      }
+      .contact-links-row {
+        flex-direction: column;
+        gap: 1.2rem;
+        max-width: 100%;
+      }
+      .contact-link {
+        font-size: 1rem;
+        text-align: left;
+        justify-content: flex-start;
+        width: 100%;
+        border-radius: 0.5em;
+      }
+      .contact-content {
+        padding: 0 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AZIS FADILLAH</div>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Sleek About Me Hero Section -->
+    <section class="about-hero" id="about">
+      <!-- Profile picture removed -->
+      <div class="about-content">
+        <div class="about-title">
+          Hi, I'm <span class="about-highlight">Azis Fadillah</span>
+        </div>
+        <div class="about-desc">
+          I'm Azis Fadillah, a Fine Arts student at <span class="about-highlight">Semarang State University</span> from <span class="about-highlight">Cirebon. </span>I have a strong interest in the visual arts and creative expression through art, particularly in illustration and graphic design.
+        </div>
+      </div>
+    </section>
+    <section class="portfolio" id="portfolio">
+      <div class="portfolio-header center black" style="margin-bottom: 2.5rem;">Portfolio</div>
+      <div class="portfolio-subheader big">Illustrations</div>
+      <div class="portfolio-grid align-left">
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/YSHhmtMx/Akali.png" alt="Project 1" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/VLmG4C4y/Star-Guardian-Soraka.png" alt="Project 2" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/7hW5C7ZC/Akali-Grayscale.png" alt="Project 3" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/Wb89y1fd/Hand-Study.jpg" alt="Project 4" onclick="openModal(this)">
+        </div>
+      </div>
+      <!-- Modal for full image -->
+      <div class="image-modal" id="imageModal" onclick="closeModal(event)">
+        <button class="image-modal-close" onclick="closeModal(event)" aria-label="Close">&times;</button>
+        <img id="modalImg" src="" alt="Full Image" onclick="toggleZoom(event)">
+      </div>
+      <div class="portfolio-subheader big" style="margin-top: 4.5rem;">Graphic Design</div>
+      <div class="portfolio-grid align-left">
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/FsfXcKgX/Autism-Campaign-Poster.png" alt="Graphic Design 1" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/1zQkLrxy/Blastoz.jpg" alt="Graphic Design 2" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/h45HSBFy/Blastoz-Packaging-Redesign.png" alt="Graphic Design 3" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/5yyds4hv/Chocolate-Bar-Packaging-Design.jpg" alt="Graphic Design 4" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/0Q5LN523/Little-Prince-Book-Cover-Redesign.png" alt="Graphic Design 5" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/JzZw6d2T/Max-Tea-Tarikk.png" alt="Graphic Design 6" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/zXH4vc8J/Max-Tea-Tarikk-Packaging-Redesign.png" alt="Graphic Design 7" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/7PtyfzzN/Noodle-Packaging-Design.jpg" alt="Graphic Design 8" onclick="openModal(this)">
+        </div>
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/9MWjqt1L/Sunsilk.png" alt="Graphic Design 9" onclick="openModal(this)">
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact-section">
+      <div class="contact-header">Contact</div>
+      <div class="contact-caption">
+        If you’d like to discuss a project, collaborate, or just say hello, feel free to reach out. I’m always open to new opportunities and creative conversations. Let’s make something great together!
+      </div>
+      <div class="contact-content">
+        <div class="contact-links-row">
+          <a href="https://instagram.com/arczees" class="contact-link" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; border-radius: 4px;">
+            </span>
+            Arczees
+          </a>
+          <a href="mailto:abdulazisfadillah15@gmail.com" class="contact-link email-link" style="margin: 0 2.5rem;">
+            <span class="contact-icon" aria-hidden="true">
+              <img src="https://cdnlogo.com/logos/g/37/gmail-icon.svg" alt="" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; border-radius: 4px;">
+            </span>
+            abdulazisfadillah15@gmail.com
+          </a>
+          <a href="https://www.artstation.com/arczees" class="contact-link" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <img src="https://play-lh.googleusercontent.com/RUkxkpZLufZ_cVXdaEVm61g_F4YBwhED3N9POkVt7lMw0tU5ZB62XYeW42WFvJvM0Jg" alt="" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle; border-radius: 4px;">
+            </span>
+            Arczees
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Modal for full image -->
+    <div class="image-modal" id="imageModal" onclick="closeModal(event)">
+      <button class="image-modal-close" onclick="closeModal(event)" aria-label="Close">&times;</button>
+      <img id="modalImg" src="" alt="Full Image" onclick="toggleZoom(event)">
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Azis Fadillah. All rights reserved.
+  </footer>
+  <script>
+    function openModal(img) {
+      var modal = document.getElementById('imageModal');
+      var modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modalImg.classList.remove('zoomed');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(e) {
+      if (
+        e.target.classList.contains('image-modal') ||
+        e.target.classList.contains('image-modal-close')
+      ) {
+        document.getElementById('imageModal').classList.remove('active');
+        document.getElementById('modalImg').src = '';
+        document.getElementById('modalImg').classList.remove('zoomed');
+        document.body.style.overflow = '';
+      }
+    }
+    function toggleZoom(e) {
+      e.stopPropagation();
+      var img = e.target;
+      img.classList.toggle('zoomed');
+    }
+    // Optional: close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "Escape") {
+        document.getElementById('imageModal').classList.remove('active');
+        document.getElementById('modalImg').src = '';
+        document.getElementById('modalImg').classList.remove('zoomed');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
